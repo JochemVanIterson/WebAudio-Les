@@ -1,0 +1,19 @@
+{
+  "name": "webaudioles",
+  "version": "1.0.0",
+  "description": "Repository for the lesson about WebAudio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jochem.vaniterson@audioware.nl",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JochemVanIterson/WebAudio-Les.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JochemVanIterson/WebAudio-Les/issues"
+  },
+  "homepage": "https://github.com/JochemVanIterson/WebAudio-Les#readme"
+}
