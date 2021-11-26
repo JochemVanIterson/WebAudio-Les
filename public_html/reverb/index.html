@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jochem van Iterson">
+    <meta name="theme-color" content="43a047">
+    <title>WebAudio Les</title>   
+
+    <!-- Bootstrap core CSS -->
+    <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">WebAudio Les</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/reverb">Reverb</a></li>
+          <li class="nav-item"><a class="nav-link" href="/sineosc">SineOsc</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Convolution Reverb</h1>
+    <div class="bg-light px-5 py-3 mb-3 rounded">
+      <h3>Description</h3>
+      <p>
+        Web Audio is based on nodes. You can compare it to the way MaxMSP works, but then you make the connection by writing code.
+      </p>
+      <p>
+        As exercise we well try to combine three (existing) nodes. We will use a sound source, a gain node and a convolution reverb. The UI is already provided (unless you want something else entirely) so you only have to write the webaudio part!
+      </p>
+    </div>
+    <div class="bg-light px-5 py-3 rounded">
+      <h3>Controls</h3>
+      <div class="row g-3 align-items-center">
+        <label class="col-2 col-form-label">Playback State</label>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-primary" id="playbackStateButton" onclick="setPlaybackState(!this.classList.contains('btn-primary'))">Stopped</button>
+        </div>
+      </div>
+      <div class="row row mb-3 align-items-center">
+        <label for="gainRange" class="col-2 col-form-label">Gain</label>
+        <div class="col">
+          <input type="range" value="50" min="0" max="100" step="1" class="form-range" id="gainRange" oninput="setGainValue(this.value)">
+        </div>
+        <span class="col-auto" style="width:30px" id="gainValue">0.5</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
