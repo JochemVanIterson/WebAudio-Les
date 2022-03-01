@@ -1,10 +1,21 @@
+import MyOscNode from './myOscNode.js'
+let audioContext;
+let myOscNode;
+
 /**
  * Function that initialized the web audio system
  */
-function initWebAudioScript() {
-    console.log('reverb script started')
+async function initWebAudioScript() {
+    console.log('Sine oscillator script started')
 
-    // TODO: Implementation webaudio initialization
+    // Resume audiocontext after click
+    document.addEventListener('click', function() {
+        if (audioContext && audioContext.state === 'suspended') audioContext.resume();
+    }, false);
+
+    audioContext = new AudioContext({ sampleRate: 44100 })
+    await audioContext.audioWorklet.addModule('myOscProcessor.js')
+    myOscNode = new MyOscNode(audioContext, 440)
 }
 
 /**
@@ -50,5 +61,17 @@ function setOscillatorFreqValue(value) {
 }
 
 (function() {
-   initWebAudioScript()
+    initWebAudioScript()
+    const playbackStateButton = document.getElementById('playbackStateButton')
+    const gainRange = document.getElementById('gainRange')
+    const oscillatorFreqRange = document.getElementById('oscillatorFreqRange')
+    playbackStateButton.addEventListener('click', (event) => {
+        setPlaybackState(!event.target.classList.contains('btn-primary'))
+    })
+    gainRange.addEventListener('input', (event) => {
+        setGainValue(event.target.value)
+    })
+    oscillatorFreqRange.addEventListener('input', (event) => {
+        setOscillatorFreqValue(event.target.value)
+    })
 })();

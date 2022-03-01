@@ -31,12 +31,10 @@
   <main class="container">
     <h1>SineOsc DIY</h1>
     <div class="bg-light px-5 py-3 mb-3 rounded">
-      <h3>Description</h3>
+      <h3 class="pb-2">Description</h3>
       <p>
-        You can also write your own audio node.
-      </p>
-      <p>
-        For this exercise we will create our own sine oscillator <s>TODO: Further explain the exercise</s> 
+        You can also write your own audio node. <br>
+        For this exercise we will create our own sine oscillator. The controls are already there, you'll only have to focus on the audio gen part!
       </p>
     </div>
     <div class="bg-light px-5 py-3 rounded">
@@ -44,20 +42,20 @@
       <div class="row g-3 align-items-center">
         <label class="col-2 col-form-label">Oscillator</label>
         <div class="col-auto">
-          <button type="button" class="btn btn-outline-primary" id="playbackStateButton" onclick="setPlaybackState(!this.classList.contains('btn-primary'))">Stopped</button>
+          <button type="button" class="btn btn-outline-primary" id="playbackStateButton">Stopped</button>
         </div>
       </div>
       <div class="row row mb-3 align-items-center">
         <label for="gainRange" class="col-2 col-form-label">Gain</label>
         <div class="col">
-          <input type="range" value="50" min="0" max="100" step="1" class="form-range" id="gainRange" oninput="setGainValue(this.value)">
+          <input type="range" value="50" min="0" max="100" step="1" class="form-range" id="gainRange">
         </div>
         <span class="col-auto" style="width:30px" id="gainValue">0.5</span>
       </div>
       <div class="row row mb-3 align-items-center">
         <label for="oscillatorFreqRange" class="col-2 col-form-label">Oscillator Frequency</label>
         <div class="col">
-          <input type="range" value="440" min="0" max="5000" step="1" class="form-range" id="oscillatorFreqRange" oninput="setOscillatorFreqValue(this.value)">
+          <input type="range" value="440" min="0" max="5000" step="1" class="form-range" id="oscillatorFreqRange">
         </div>
         <span class="col-auto" style="width:30px" id="oscillatorFreqValue">440</span>
       </div>
@@ -66,6 +64,6 @@
 
   <script src="/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/main.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

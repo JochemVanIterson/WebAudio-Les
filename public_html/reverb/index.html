@@ -44,13 +44,19 @@
       <div class="row g-3 align-items-center">
         <label class="col-2 col-form-label">Playback State</label>
         <div class="col-auto">
-          <button type="button" class="btn btn-outline-primary" id="playbackStateButton" onclick="setPlaybackState(!this.classList.contains('btn-primary'))">Stopped</button>
+          <button type="button" class="btn btn-outline-primary" id="playbackStateButton">Stopped</button>
         </div>
       </div>
-      <div class="row row mb-3 align-items-center">
+      <div class="row g-3 py-2 align-items-center">
+        <label class="col-2 col-form-label">Reverb</label>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary" id="setReverbButton">Enabled</button>
+        </div>
+      </div>
+      <div class="row row py-2 mb-3 align-items-center">
         <label for="gainRange" class="col-2 col-form-label">Gain</label>
         <div class="col">
-          <input type="range" value="50" min="0" max="100" step="1" class="form-range" id="gainRange" oninput="setGainValue(this.value)">
+          <input type="range" value="50" min="0" max="100" step="1" class="form-range" id="gainRange">
         </div>
         <span class="col-auto" style="width:30px" id="gainValue">0.5</span>
       </div>
@@ -59,6 +65,6 @@
 
   <script src="/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/main.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
