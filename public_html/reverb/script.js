@@ -18,13 +18,19 @@ function initWebAudioScript() {
     audioContext = new AudioContext({ sampleRate: 44100 })
 
     // TODO: Implement gain node
+    gainNode = audioContext.createGain();
+    gainNode.gain.value = 0.5;
+    gainNode.connect(audioContext.destination)
 
     audioElement = document.createElement('audio')
     audioElement.setAttribute('src', '../assets/audioFiles/drumLoop.mp3')
     audioElement.setAttribute('loop', true)
     // TODO: Implement HTML5 DOM -> WebAudio node
+    sourceNode = audioContext.createMediaElementSource(audioElement);
+    sourceNode.connect(gainNode)
     
     // TODO: Implement convolution node
+    convolverNode = audioContext.createConvolver();
     loadConvolutionReverb()
 }
 
@@ -35,6 +41,9 @@ async function loadConvolutionReverb() {
 
     // TODO: Implement connect of convolution node
     
+    gainNode.disconnect()
+    gainNode.connect(convolverNode);
+    convolverNode.connect(audioContext.destination);
 }
 
 /**
@@ -66,6 +75,13 @@ function setReverbState(state) {
     console.log('setReverbState', state)
 
     // TODO: Implement reverb node state change
+    gainNode.disconnect()
+    if (state) {
+        gainNode.connect(convolverNode);
+    }
+    else {
+        gainNode.connect(audioContext.destination);
+    }
 }
 
 /**
@@ -80,6 +96,7 @@ function setGainValue(value) {
     console.log('setGainValue', value)
 
     // TODO: Implementation of gain value change
+    gainNode.gain.value = value
 }
 
 (function() {

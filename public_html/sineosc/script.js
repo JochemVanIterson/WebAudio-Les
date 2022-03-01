@@ -31,6 +31,8 @@ function setPlaybackState(state) {
     console.log('setPlaybackState', state)
 
     // TODO: Implementation of sound source state change
+    if (state) myOscNode.connect(audioContext.destination)
+    else myOscNode.disconnect()
 }
 
 /**
@@ -45,6 +47,7 @@ function setGainValue(value) {
     console.log('setGainValue', value)
 
     // TODO: Implementation of gain value change
+    myOscNode.gain = value
 }
 
 /**
@@ -58,6 +61,7 @@ function setOscillatorFreqValue(value) {
     console.log('setOscillatorFreqValue', value)
 
     // TODO: Implementation of oscillator frequency value change
+    myOscNode.frequency = value
 }
 
 (function() {
